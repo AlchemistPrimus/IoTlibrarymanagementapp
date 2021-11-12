@@ -1,0 +1,7 @@
+import os
+
+SECRET_KEY=os.environ.get('SECRET_KEY')
+DB_NAME='database.db'
+SQLALCHEMY_DATABASE_URI="sqlite:///{DB_NAME}"
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+DEBUG=True

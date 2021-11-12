@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="content-fluid row bg-dark text-light text-center">
+    <h1>TheLibrary</h1>
+    <h5>My account</h5>
+</div>
+<div class="content row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+        <p><b>Borrowed books</b></b>
+        <ul>
+            {%for book in user.borrowed%}
+                <li>
+                    {%if book.borrow==True%}
+                        {{book.bookname}}
+                    {%endif%}
+                </li>
+            {%endfor%}
+        </ul>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+{%endblock%}

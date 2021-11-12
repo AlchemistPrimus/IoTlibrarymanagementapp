@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+<div class="content-fluid bg-dark text-light row">
+    <div class="content mainHeaderArea p-2">
+        <h1 class="text-center"><span class="mainHeader">TheLibrary</h1>
+    </div>
+    <div class="content text-center mainArea p-2">
+        <p>
+            Welcome to TheLibrary. The home of knowledge. To continue:
+        <p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        {%block formGroup%}
+            <div class="content formArea p-3">
+                <form class="form-horizontal" method="POST" action="login">
+                    <div class="form-group p-2">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-group p-2">
+                        <label class="control-label col-sm-2" for="pwd">Password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group p-2">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default btn-primary p-2">continue</button>
+                        </div>
+                    </div>
+                </form> 
+            </div> 
+        {%endblock%}
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+{%endblock%}

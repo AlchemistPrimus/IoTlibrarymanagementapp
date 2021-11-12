@@ -1,0 +1,68 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="content-fluid bg-dark text-light row">
+    <div class="content mainHeaderArea p-2">
+        <h1 class="text-center"><span class="mainHeader">TheLibrary</h1>
+    </div>
+    <div class="content p-2">
+        <h3 class="text-center">Administrator</h3>
+    </div>
+</div>
+<div class="content-fluid row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <form method="POST">
+            <div class="content text-center p-2">
+                <h5>Borrow</h5>
+                <p>Search user:</p>
+                <div class="input-group p-3">
+                    <input type="search" class="form-control rounded" placeholder="Enter User" name="usern" aria-label="Search"
+                    aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-primary">search</button>
+                </div>
+                <p>user found h@gmail.com</p>
+                <p>Search book:</p>
+                <div class="input-group p-3">
+                    <input type="search" class="form-control rounded" placeholder="Enter book" aria-label="Search"
+                    aria-describedby="search-addon" />
+                    <button type="button" name="bookn" class="btn btn-outline-primary">search</button>
+                </div>
+                <p>Book found</p>
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="borr" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Borrow</label>
+                </div>
+                <button class="btn btn-primary" type="submit">confirm</button>
+                <hr/>
+                <h5>Register Book</h5>
+                <p>Enter tag</p>
+                <div class="input-group  p-2">
+                    <input id="msg" type="text" class="form-control" name="tag" placeholder="Enter UID Tag">
+                </div>
+                <p>Enter name of the book</p>
+                <div class="input-group  p-2">
+                    <input id="msg" type="text" class="form-control" name="bookname" placeholder="Enter name of the book">
+                </div>
+                <button class="btn btn-primary" type="submit">submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <p><b>Borrowed books</b></b>
+        <ul>
+            {%for book in user.borrowed%}
+                <li>
+                    {%if book.borrow==True%}
+                        {{book.bookname}}
+                    {%endif%}
+                </li>
+            {%endfor%}
+        </ul>
+    </div>
+</div>
+
+{%endblock%}
