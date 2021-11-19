@@ -6,12 +6,23 @@ def on_connect(client, userdata, flags, rc):  # The callback for when the client
     print("Connected with result code {0}".format(str(rc)))  # Print result of connection attempt
     client.subscribe("libraryUUIDs")  # Subscribe to the topic “digitest/test1”, receive any messages published on it
 
-
 def on_message(client, userdata, msg):  # The callback for when a PUBLISH message is received from the server.
     print("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
     #reference from db and return the following
-    meas = {"borrowerName": "Sammy Oina","book":"Witcher"}
-    ret= client.publish("libraryResponse",json.dumps(meas))
+    data=json.loads(str(msg.payload))
+    Btag=Book.query.filter(tag=data["UUID"])
+    borr=Book.query.filter(Book.borrow==True)#contains rows where borrowed is true
+    books =User.query.filter(User.borrowed.any(Book.borrow==True)).first()#contains items in User
+    #table where we can use to fetch usernames of borrowed books.
+    buzz=False
+    if Btag:
+        buzz=True
+        meas = {"borrowerName":books.email,"book":borr.bookname, "buzzer":buzz}
+        ret= client.publish("libraryResponse",json.dumps(meas))
+        return ret
+    else:
+        #Bazaar should sound alarm here
+        raise "Error, book is not borrowed."
 
 
 client = mqtt.Client("testing")  # Create instance of client with client ID “digi_mqtt_test”

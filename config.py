@@ -1,7 +1,6 @@
+"""This file contains necessary configurations for our app"""
 import os
 
-SECRET_KEY=os.environ.get('SECRET_KEY')
-DB_NAME='database.db'
-SQLALCHEMY_DATABASE_URI="sqlite:///{DB_NAME}"
-SQLALCHEMY_TRACK_MODIFICATIONS=False
-DEBUG=True
+SECRET_KEY="superSecret"
+PASSWORD="librarysystem"
+#SQLALCHEMY_DATABASE_URI='mysql+pymsql://soupnazi:PASSWORD@soupnazi.mysql.pythonanywhere-services.com/lib_data'
