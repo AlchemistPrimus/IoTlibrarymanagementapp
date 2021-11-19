@@ -9,15 +9,18 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4 text-center">
+        <p><b>Available Books</b></p>
+        <ul>
+        {%for user in books%}
+            <li>{{user.email}}</li>
+        {%endfor%}
+        </ul>
+        <hr/>
         <p><b>Borrowed books</b></b>
         <ul>
-            {%for book in user.borrowed%}
-                <li>
-                    {%if book.borrow==True%}
-                        {{book.bookname}}
-                    {%endif%}
-                </li>
-            {%endfor%}
+        {%for bor in borr%}
+            <li>{{bor.bookname}}</li>
+        {%endfor%}
         </ul>
     </div>
     <div class="col-md-4">
