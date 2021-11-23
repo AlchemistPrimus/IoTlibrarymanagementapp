@@ -25,10 +25,10 @@ def login():
 
         user = User.query.filter_by(email=email).first()#Fetching email from the database.
         borr=Book.query.filter(Book.borrow==True)
-        if borr:
-            books =User.query.filter(User.borrowed.any(Book.borrow==True))
+        #books =User.query.filter(User.borrowed.any(Book.borrow==False))
+        books=Book.query.filter(Book.borrow==False)
         if user:
-            if user.password==password:
+            if check_password_hash(user.password,password):
                 flash("Logged in successfully!", category='success')
                 login_user(user, remember=True)
                 return render_template("home.html",user=current_user,borr=borr,books=books)
@@ -50,7 +50,7 @@ def sign_up():
         password2=request.form.get('password2')
 
         user=User.query.filter_by(email=email).first()
-        borrowed=Book.query.filter(Book.borrow==True) #to display borrowed books
+        borr=Book.query.filter(Book.borrow==True) #to display borrowed books
         books=Book.query.filter(Book.borrow==False)#to diplay all books in the library
         if user:
             flash("Email exists.", category='error')
@@ -63,13 +63,13 @@ def sign_up():
         elif password1 != password2:
             flash("Passwords do not match.", category="error")
         else:
-            new_user = User(email=email,password=password1)
+            new_user = User(email=email,password=(generate_password_hash(password1)))
             db.session.add(new_user)
             db.session.commit()
             login_user(user=new_user, remember=True)
 
             flash("Account created!", category="success")
-            return render_template("home.html",user=current_user,borrowed=borrowed, books=books)
+            return render_template("home.html",user=current_user,borr=borr, books=books)
     return render_template('sign_up.html',user=current_user)
 
 @routes.route('/logout')

@@ -10,8 +10,8 @@ class User(db.Model,UserMixin):
     This class inherits some methods from UserMixin class."""
     __tablename__="user"
     id=db.Column(db.Integer, primary_key=True,autoincrement=True)
-    email=db.Column(db.String,unique=True)
-    password=db.Column(db.String)
+    email=db.Column(db.String(255),unique=True)
+    password=db.Column(db.String(255))
     #borrower=db.Column(db.Boolean,nullable=False,default=True)
     borrowed = db.relationship('Book',backref="user", lazy="dynamic")
 
