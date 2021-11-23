@@ -1,18 +1,24 @@
 {%extends 'base.html'%}
+{%block head%}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='styles2.css')}}" type="text/css">
+{%endblock%}
 
 {%block content%}
-<div class="content-fluid row bg-dark text-light text-center">
+<div class="bodyArea">
+<div class="content-fluid row text-center HomeHeader">
     <h1>TheLibrary</h1>
     <h5>My account</h5>
+    <p>View available books to borrow from the library</p>
 </div>
-<div class="content row">
+<div class="content row MainRow">
     <div class="col-md-4">
     </div>
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-center MainCol">
         <p><b>Available Books</b></p>
         <ul>
         {%for user in books%}
-            <li>{{user.email}}</li>
+            <li>{{user.bookname}}</li>
         {%endfor%}
         </ul>
         <hr/>
@@ -25,5 +31,6 @@
     </div>
     <div class="col-md-4">
     </div>
+</div>
 </div>
 {%endblock%}

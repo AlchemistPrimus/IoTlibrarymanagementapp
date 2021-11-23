@@ -1,21 +1,31 @@
 {%extends 'base.html'%}
+{%block head%}
+{{super ()}}
+<link rel="stylesheet" href="{{url_for('static',filename="styles.css")}}" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fruktur&family=Open+Sans:wght@600&display=swap" rel="stylesheet"> 
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fruktur&family=Nunito:ital,wght@1,600&family=Open+Sans:wght@600&display=swap" rel="stylesheet"> 
+{%endblock%}
 
 {%block content%}
-<div class="content-fluid bg-dark text-light row">
-    <div class="content mainHeaderArea p-2">
-        <h1 class="text-center"><span class="mainHeader">TheLibrary</h1>
+<div class="row mainContent">
+    <div class="col-md-7">
+        <div class="content mainHeaderArea p-2">
+            <h1 class="text-center"><span class="mainHeader">TheLibrary</h1>
+        </div>
+        <div class="content text-center mainArea p-2">
+
+            <p>
+                <span class="introText">Welcome to TheLibrary. The home of knowledge. To continue, register in our system via signing up to use our library services. Login if you have an account.</span>
+            </p>
+            <img src="{{url_for('static',filename='shelf.png')}}">
+        </div>
     </div>
-    <div class="content text-center mainArea p-2">
-        <p>
-            Welcome to TheLibrary. The home of knowledge. To continue:
-        <p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
+    <div class="content col-md-5">
         {%block formGroup%}
             <div class="content formArea p-3">
                 <form class="form-horizontal" method="POST" action="login">
@@ -39,8 +49,6 @@
                 </form> 
             </div> 
         {%endblock%}
-    </div>
-    <div class="col-md-4">
     </div>
 </div>
 
