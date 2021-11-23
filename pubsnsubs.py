@@ -39,11 +39,11 @@ def on_message(client, userdata, msg):  # The callback for when a PUBLISH messag
     if k is not None:
         bookname=k[2]
         username=k[6]
-        meas = {"borrowerName":username,"book":bookname, "buzzer":buzz}
+        meas = {"borrowerName":username,"book":bookname, "buzzer":0}
         ret= Klient.publish("libraryResponse",json.dumps(meas))
         return ret
     else:
-        meas = {"borrowerName":"no user","book":"book not borrowed", "buzzer":buzz}
+        meas = {"borrowerName":"no user","book":"book not borrowed", "buzzer":1}
         ret= Klient.publish("libraryResponse",json.dumps(meas))
         return ret
     
