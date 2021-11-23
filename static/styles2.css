@@ -1,0 +1,23 @@
+body {
+    padding: border-box;
+}
+
+.bodyArea {
+    background-image: url('shelf.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.MainRow {
+    background-color: rgba(166, 221, 221, 0.863);
+    padding: 2em;
+    height: 100%vh;
+}
+
+.HomeHeader {
+    color: white;
+    padding: 3em;
+    height: 230px;
+    background-color: rgba(16, 22, 20, 0.74);
+}
