@@ -3,7 +3,7 @@
 we are implementing sql alchemy database engine to interact with the database. We are using cloud based mysql server to host our mysql database."""
 from extensions import db
 from flask_login import UserMixin
-from sqlalchemy.sql import func
+
 
 class User(db.Model,UserMixin):
     """User table that contins three columns and relationship the a back reference to the Book table.
