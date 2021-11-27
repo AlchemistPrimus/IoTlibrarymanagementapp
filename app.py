@@ -15,7 +15,7 @@ def create_app(settings="config.py"):
     """Factory function to start the web app when everthing(i.e configurations are set up in place.)"""
     myapp=Flask(__name__)#Creating app instance
     myapp.config["SECRET_KEY"]=SECRET_KEY
-    myapp.config["SQLALCHEMY_DATABASE_URI"]='mysql+pymysql://sql4452256:jrzZ6YuNTR@sql4.freemysqlhosting.net/sql4452256'
+    myapp.config["SQLALCHEMY_DATABASE_URI"]='mysql+pymysql://sql3454571:WHX46b68A6@sql3.freemysqlhosting.net/sql3454571'
     myapp.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
     myapp.config['SQLALCHEMY_POOL_RECYCLE'] = 299
     myapp.config['SQLALCHEMY_POOL_TIMEOUT'] = 20

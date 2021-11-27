@@ -4,7 +4,7 @@ import json
 import sqlalchemy as sal
 
 #Establishing connection to the database
-engine=sal.create_engine("mysql+pymysql://sql4452256:jrzZ6YuNTR@sql4.freemysqlhosting.net/sql4452256")
+engine=sal.create_engine("mysql+pymysql://sql3454571:WHX46b68A6@sql3.freemysqlhosting.net/sql3454571")
 
 #Establishing a connection to the database
 engine.connect()
